@@ -3,11 +3,15 @@ window.addEventListener("load", function() {
    let form = document.querySelector("form");
 
    form.addEventListener("submit", function(event) {
-
+      let pilotRdy = false;
+      let coRdy = false;
+      let fuelRdy = false;
+      let cargoRdy = false;
       let pilotName = document.querySelector("input[name=pilotName]");
       let copilotName = document.querySelector("input[name=copilotName]");
       let fuelLevel = document.querySelector("input[name=fuelLevel]");
       let cargoMass = document.querySelector("input[name=cargoMass]");
+      let faultyItems = document.getElementById("faultyItems");
 
       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
          alert("All fields are required!");
@@ -18,6 +22,11 @@ window.addEventListener("load", function() {
       if(isNaN(fuelLevel.value) == true){
          alert("Fuel must be numeric")
          event.preventDefault();
+      } else{
+         if(fuelLevel.value < 10000){
+            faultyItems.style.visibility = "visible";
+            
+         }
       }
 
       if(isNaN(cargoMass.value) == true){
@@ -25,10 +34,22 @@ window.addEventListener("load", function() {
          event.preventDefault();
       }
 
-      if(isNaN(pilotName.value) == false || isNaN(copilotName.value) == false){
-         alert("Pilot and co pilot names must be strings")
+      if(isNaN(copilotName.value) == false){
+         alert("Co pilot name must be a string")
          event.preventDefault();
+      } else {
+         let copilotStatus = document.getElementById("copilotStatus");
+         copilotStatus.innerHTML = `${copilotName.value}`;
       }
+
+      if(isNaN(pilotName.value) == false){
+         alert("Pilot name must be a string")
+         event.preventDefault();
+      } else {
+         let pilotStatus = document.getElementById("pilotStatus");
+         pilotStatus.innerHTML = `${pilotName.value}`;
+      }
+
    });
 
 });
