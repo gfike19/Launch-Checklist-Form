@@ -15,23 +15,25 @@ window.addEventListener("load", function() {
          event.preventDefault();
       }
 
-      if(typeof(fuelLevel.value) != "number"){
+      if(isNaN(fuelLevel.value) == true){
          alert("Fuel must be numeric")
          event.preventDefault();
       }
 
-      if(typeof(cargoMass.value) != "number"){
+      if(isNaN(cargoMass.value) == true){
          alert("Cargo Mass must be numeric")
          event.preventDefault();
       }
 
-      if(typeof(pilotName.value) != "string" || typeof(copilotName.value) != "string"){
-         alert("Fuel must be numeric")
+      if(isNaN(pilotName.value) == false || isNaN(copilotName.value) == false){
+         alert("Pilot and co pilot names must be strings")
          event.preventDefault();
       }
    });
 
 });
+
+
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
 <ol>
