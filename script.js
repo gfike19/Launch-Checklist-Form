@@ -20,6 +20,26 @@ window.addEventListener("load", function () {
          alert("All fields are required!");
          event.preventDefault();
       }
+
+      if(isNaN(pilotName.value) == false) {
+         alert("Pilot name cannot be a number");
+         event.preventDefault();
+      }
+
+      if(isNaN(copilotName.value) == false) {
+         alert("Copilot name cannot be a number");
+         event.preventDefault();
+      }
+
+      if(isNaN(fuelLevel.value) == true){
+         alert("Fuel level must be a number");
+         event.preventDefault();
+      }
+
+      if(isNaN(cargoMass.value) == true){
+         alert("Cargo mass must be a number");
+         event.preventDefault();
+      }
    })
 });
 
