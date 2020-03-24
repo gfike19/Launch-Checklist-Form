@@ -42,13 +42,28 @@ window.addEventListener("load", function () {
       }
 
       if(fuelLevel.value < 10000) {
-         pilotStatus.innerHTML = pilotName.value;
-         copilotStatus.innerHTML = copilotName.value;
+         pilotStatus.innerHTML = `${pilotName.value} ready`;
+         copilotStatus.innerHTML = `${copilotName.value} ready`;
+         fuelStatus.innerHTML = "Inadequate fuel level present";
+
+         if(cargoMass.value > 10000) {
+            cargoStatus.innerHTML = "Cargo mass too high";
+         }
+
          faultyItems.style.visibility = "visible";
          launchStatus.style.color = "red";
          launchStatus.innerHTML = "Shuttle not ready for launch";
          event.preventDefault();
+      } else {
+         pilotStatus.innerHTML = `${pilotName.value} ready`;
+         copilotStatus.innerHTML = `${copilotName.value} ready`;
+         faultyItems.style.visibility = "visible";
+         launchStatus.style.color = "green";
+         launchStatus.innerHTML = "Shuttle ready for launch";
+         event.preventDefault();
       }
+
+
    })
 });
 
