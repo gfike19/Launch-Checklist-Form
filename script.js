@@ -1,17 +1,21 @@
 // Write your JavaScript code here!
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
    let form = document.querySelector("form");
+   let pilotName = "";
+   let copilotName = "";
+   let fuelLevel = "";
+   let cargoMass = "";
+   let faultyItems = "";
+   let formSubmit = document.getElementById("formSubmit");
 
-   form.addEventListener("submit", function(event) {
-      let pilotRdy = false;
-      let coRdy = false;
-      let fuelRdy = false;
-      let cargoRdy = false;
-      let pilotName = document.querySelector("input[name=pilotName]");
-      let copilotName = document.querySelector("input[name=copilotName]");
-      let fuelLevel = document.querySelector("input[name=fuelLevel]");
-      let cargoMass = document.querySelector("input[name=cargoMass]");
-      let faultyItems = document.getElementById("faultyItems");
+
+
+   formSubmit.addEventListener("onclick", function (event) {
+      pilotName = document.querySelector("input[name=pilotName]");
+      copilotName = document.querySelector("input[name=copilotName]");
+      fuelLevel = document.querySelector("input[name=fuelLevel]");
+      cargoMass = document.querySelector("input[name=cargoMass]");
+      faultyItems = document.getElementById("faultyItems");
 
       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
          alert("All fields are required!");
@@ -19,22 +23,17 @@ window.addEventListener("load", function() {
          event.preventDefault();
       }
 
-      if(isNaN(fuelLevel.value) == true){
+      if (isNaN(fuelLevel.value) == true) {
          alert("Fuel must be numeric")
          event.preventDefault();
-      } else{
-         if(fuelLevel.value < 10000){
-            faultyItems.style.visibility = "visible";
-            
-         }
       }
 
-      if(isNaN(cargoMass.value) == true){
+      if (isNaN(cargoMass.value) == true) {
          alert("Cargo Mass must be numeric")
          event.preventDefault();
       }
 
-      if(isNaN(copilotName.value) == false){
+      if (isNaN(copilotName.value) == false) {
          alert("Co pilot name must be a string")
          event.preventDefault();
       } else {
@@ -42,7 +41,7 @@ window.addEventListener("load", function() {
          copilotStatus.innerHTML = `${copilotName.value}`;
       }
 
-      if(isNaN(pilotName.value) == false){
+      if (isNaN(pilotName.value) == false) {
          alert("Pilot name must be a string")
          event.preventDefault();
       } else {
@@ -50,8 +49,26 @@ window.addEventListener("load", function() {
          pilotStatus.innerHTML = `${pilotName.value}`;
       }
 
+      form.addEventListener("submit", function(event) {
+         let pilotStatus = document.getElementById("pilotStatus");
+      let copilotStatus = document.getElementById("copilotStatus");
+      let fuelStatus = document.getElementById("fuelStatus");
+      let cargoStatus = document.getElementById("cargoStatus");
+      let faultyItems = document.getElementById("faultyItems");
+      let launchStatusCheck = document.getElementById("launchStatusCheck");
+      let launchStatus = document.getElementById("launchStatus");
+
+      pilotStatus.innerHTML = pilotName.value;
+      copilotStatus.innerHTML = copilotName.value;
+
+      if (fuelLevel < 10000) {
+         faultyItems.style.visibility = "visible";
+      }
+      })
+      
    });
 
+   
 });
 
 
