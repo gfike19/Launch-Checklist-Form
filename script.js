@@ -1,24 +1,16 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function () {
    let form = document.querySelector("form");
-   let pilotName = "";
-   let copilotName = "";
-   let fuelLevel = "";
-   let cargoMass = "";
-   let faultyItems = "";
    let formSubmit = document.getElementById("formSubmit");
-
-   pilotName = document.querySelector("input[name=pilotName]");
-   copilotName = document.querySelector("input[name=copilotName]");
-   fuelLevel = document.querySelector("input[name=fuelLevel]");
-   cargoMass = document.querySelector("input[name=cargoMass]");
-   faultyItems = document.getElementById("faultyItems");
-
+   let pilotName = document.querySelector("input[name=pilotName]");
+   let copilotName = document.querySelector("input[name=copilotName]");
+   let fuelLevel = document.querySelector("input[name=fuelLevel]");
+   let cargoMass = document.querySelector("input[name=cargoMass]");
+   let faultyItems = document.getElementById("faultyItems");
    let pilotStatus = document.getElementById("pilotStatus");
    let copilotStatus = document.getElementById("copilotStatus");
    let fuelStatus = document.getElementById("fuelStatus");
    let cargoStatus = document.getElementById("cargoStatus");
-   let faultyItems = document.getElementById("faultyItems");
    let launchStatusCheck = document.getElementById("launchStatusCheck");
    let launchStatus = document.getElementById("launchStatus");
 
