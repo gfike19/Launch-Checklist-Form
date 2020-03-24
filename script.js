@@ -14,6 +14,13 @@ window.addEventListener("load", function () {
    let launchStatusCheck = document.getElementById("launchStatusCheck");
    let launchStatus = document.getElementById("launchStatus");
 
+   form.addEventListener("submit", function(event) {
+
+      if(pilotName.value == "" || copilotName.value == "" || fuelLevel.value == "" || cargoMass.value ==""){
+         alert("All fields are required!");
+         event.preventDefault();
+      }
+   })
 });
 
 
