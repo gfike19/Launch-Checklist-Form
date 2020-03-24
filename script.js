@@ -40,6 +40,15 @@ window.addEventListener("load", function () {
          alert("Cargo mass must be a number");
          event.preventDefault();
       }
+
+      if(fuelLevel.value < 10000) {
+         pilotStatus.innerHTML = pilotName.value;
+         copilotStatus.innerHTML = copilotName.value;
+         faultyItems.style.visibility = "visible";
+         launchStatus.style.color = "red";
+         launchStatus.innerHTML = "Shuttle not ready for launch";
+         event.preventDefault();
+      }
    })
 });
 
